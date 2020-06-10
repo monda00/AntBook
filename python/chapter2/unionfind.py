@@ -62,14 +62,14 @@ class UnionFind():
         if(x == y):
             return
         # 違う木に属していた場合rankを見てくっつける方を決める
-        elif(self.rank[x] > self.rnk[y]):
+        elif(self.rank[x] > self.rank[y]):
             self.root[x] += self.root[y]
             self.root[y] = x
         else:
             self.root[y] += self.root[x]
             self.root[x] = y
             # rankが同じ（深さに差がない場合）は1増やす
-            if(self.rank[x] == self.rnk[y]):
+            if(self.rank[x] == self.rank[y]):
                 self.rank[y] += 1
 
     def isSameGroup(self, x, y):
